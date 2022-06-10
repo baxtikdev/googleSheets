@@ -1,1 +1,1 @@
-web:gunicorn online_users.wsgi –log-file –
+web: gunicorn online_users.wsgi --log-file -
