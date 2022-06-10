@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registeration</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif!important;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+.mainscreen
+{
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+    background-color: #DFDBE5;
+    background-image: url("https://wallpaperaccess.com/full/3063067.png");
+    color:#963E7B;
+}
+
+.card {
+    align-content: center;
+	{#width: 60rem;#}
+    margin: auto;
+    background: white;
+    position:center;
+    align-self: center;
+    top: 50rem;
+    border-radius: 1.5rem;
+    box-shadow: 4px 3px 20px #3535358c;
+    display:flex;
+    flex-direction: row;
+
+}
+
+
+.rightside {
+    align-items: center;
+	width: 35rem;
+	border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    padding: 1rem 2rem 3rem 3rem;
+}
+
+p{
+    display:block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: .8rem 0;
+}
+
+.inputbox
+{
+    color:#030303;
+	width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1.5px solid #ccc;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    font-family: 'Roboto', sans-serif;
+    color: #615a5a;
+    font-size: 1.1rem;
+    font-weight: 500;
+  outline:none;
+}
+
+.button{
+    background: linear-gradient(
+135deg
+, #753370 0%, #298096 100%);
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    width:100%;
+    letter-spacing: .11rem;
+    outline:none;
+}
+
+.button:hover
+{
+	transform: scale(1.05) translateY(-3px);
+    box-shadow: 3px 3px 6px #38373785;
+}
+
+@media only screen and (max-width: 1000px) {
+    .card{
+        height: 1200px;
+        flex-direction: column;
+        width: 800px;
+
+    }
+
+
+    .leftside{
+        width: 100%;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+      border-top-right-radius:0;
+      border-radius:0;
+    }
+
+    .rightside{
+        width:auto;
+        border-bottom-left-radius: 1.5rem;
+        padding:1rem 3rem 3rem 2rem;
+      border-radius:0;
+    }
+    h1 {
+        margin-bottom: 100px;
+        text-align: center;
+        font-size: 70px;
+    }
+    h2 {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 35px;
+    }
+    p {
+        font-size: 45px;
+    }
+    .inputbox{
+        height: 40%;
+        font-size: 300%;
+        margin-top: 30px;
+
+    }
+    .button{
+        font-size: 45px;
+    }
+}
+
+    </style>
+    <style href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></style>
+</head>
+<body>
+
+    <div class="mainscreen">
+    <div class="card">
+        <div class="rightside">
+          <form method="post" action="{% url 'social' %}">
+              {% csrf_token %}
+            <h1 style="text-align: center">Ro'yhatdan o'tish</h1>
+            <p>Ism va familiyangiz</p>
+            <input type="text" class="inputbox" name="name" required />
+
+            <p>Telefon raqamingiz</p>
+            <input type="text" maxlength="15" class="inputbox" value="+998 " name="number" required />
+
+            <p></p>
+            <button type="submit" class="button">Kursga yozilish</button>
+          </form>
+            {% if messages %}
+                {% for msg in messages %}
+                    <h2 style="text-align: center">{{ msg }}</h2>
+                {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+    </div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
